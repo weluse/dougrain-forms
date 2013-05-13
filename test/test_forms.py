@@ -29,7 +29,7 @@ class FormsTestCase(TestCase):
         doc = HyperDocument.empty()
         doc.add_link('self', '/foo')
 
-        doc.add_form(
+        doc.set_form(
             'attack',
             '/attacks',
             headers={
