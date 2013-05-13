@@ -59,6 +59,7 @@ class FormsMixin(object):
         # Replace the current form instead of appending it
         forms[rel] = new_form
 
+    @mutator
     def delete_form(self, rel=None):
         """Removes a form resource from this document identified by its
         ``rel``.
