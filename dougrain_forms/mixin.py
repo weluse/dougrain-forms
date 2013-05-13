@@ -13,6 +13,7 @@ from .form import Form
 
 FORMS_KEY = '_forms'
 
+
 class FormsMixin(object):
 
     def form(self, href, **kwargs):
@@ -57,3 +58,26 @@ class FormsMixin(object):
         new_form = form.as_object()
         # Replace the current form instead of appending it
         forms[rel] = new_form
+
+    def delete_form(self, rel=None):
+        """Removes a form resource from this document identified by its
+        ``rel``.
+
+        Arguments:
+        - ``rel``: an optional string specifying form relationship type to be
+            removed. If omitted, all forms will be removed.
+        """
+
+        if FORMS_KEY not in self.o:
+            return
+
+        if rel is None:
+            for rel in self.o[FORMS_KEY]:
+                self.delete_form(rel)
+
+            return
+
+        if rel not in self.o[FORMS_KEY]:
+            return
+
+        del self.o[FORMS_KEY][rel]
