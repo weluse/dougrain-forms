@@ -7,12 +7,14 @@ except ImportError:
     from distutils.core import setup, find_packages
 
 
-import dougrain_forms
-
+# Version info -- read without importing
+_locals = {}
+version_module = execfile('dougrain_forms/_version.py', _locals)
+version = _locals['__version__']
 
 setup(
     name='dougrain-forms',
-    version=dougrain_forms.__version__,
+    version=version,
     description='Unofficial hypermedia form extension for dougrain.',
     long_description=open('README.rst').read(),
     author='Pascal Hartig',
