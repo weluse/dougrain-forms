@@ -95,4 +95,4 @@ By mixing in ``FormMixin`` into your document, you get three new methods:
     * ``form(self, href, **kwargs)``
 
 Until real docs have been written, take a look at
-`the source <https://github.com/weluse/dougrain-forms/blob/master/dougrain_forms/mixin.py>`.
+`the source <https://github.com/weluse/dougrain-forms/blob/master/dougrain_forms/mixin.py>`_.
