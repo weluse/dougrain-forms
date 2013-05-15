@@ -79,9 +79,9 @@ class Form(object):
 
     def __repr__(self):
         if hasattr(self, 'method'):
-            return '<Form [{}] {!r}>'.format(self.method, self._target)
+            return '<Form [{0}] {!r}>'.format(self.method, self._target)
         else:
-            return '<Form {!r}>'.format(self._target)
+            return '<Form {0!r}>'.format(self._target)
 
     def __iter__(self):
         yield self
