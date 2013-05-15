@@ -9,7 +9,7 @@ Tests for the form generation.
 from __future__ import absolute_import, print_function, unicode_literals
 from unittest import TestCase
 from dougrain import Document
-from dougrain_forms import FormsMixin
+from dougrain_forms import FormsMixin, Form
 import os
 import json
 
@@ -54,3 +54,15 @@ class FormsTestCase(TestCase):
         self.assertTrue('attack' in doc.as_object()['_forms'])
         doc.delete_form('attack')
         self.assertFalse('attack' in doc.as_object()['_forms'])
+
+    def test_set_form_with_base_uri(self):
+        form = Form({'href': 'hello/'}, 'https://example.com/endpoint/')
+        url = 'https://example.com/endpoint/hello/'
+
+        self.assertEqual(form._target, url)
+        self.assertTrue(url in repr(form))
+
+    def test_set_form_with_absolute_uri(self):
+        form = Form({'href': '/foo/'}, 'https://example.com/endpoint/')
+
+        self.assertEqual(form._target, 'https://example.com/foo/')
