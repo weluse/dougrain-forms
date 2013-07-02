@@ -21,7 +21,7 @@ class FormsMixin(object):
 
         return Form(dict(href=href, **kwargs), self.base_uri)
 
-    @mutator
+    @mutator()
     def set_form(self, rel, target, **kwargs):
         """Adds a form to the document.
 
@@ -59,7 +59,7 @@ class FormsMixin(object):
         # Replace the current form instead of appending it
         forms[rel] = new_form
 
-    @mutator
+    @mutator()
     def delete_form(self, rel=None):
         """Removes a form resource from this document identified by its
         ``rel``.
