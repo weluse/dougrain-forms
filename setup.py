@@ -2,21 +2,21 @@
 
 # Support setuptools or distutils
 try:
-    from setuptools import setup, find_packages
+    from setuptools import setup
 except ImportError:
-    from distutils.core import setup, find_packages
+    from distutils.core import setup
 
 
-def _xfile(filename):
+def _xfile(filename, locals):
     with open(filename) as f:
         code = compile(f.read(), filename, 'exec')
-        exec(code, global_vars, local_vars)
+        exec(code, {}, locals)
 
 
 def get_version():
     # Version info -- read without importing
     _locals = {}
-    version_module = _xfile('dougrain_forms/_version.py', _locals)
+    _xfile('dougrain_forms/_version.py', _locals)
     return _locals['__version__']
 
 setup(
