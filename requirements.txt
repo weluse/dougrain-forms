@@ -1,1 +1,1 @@
-dougrain==0.5
+dougrain==0.5.1

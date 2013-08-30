@@ -7,7 +7,10 @@ A forms generation extension for dougrain.
 """
 
 from __future__ import absolute_import, print_function, unicode_literals
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib import parse as urlparse
 
 
 class Form(object):
