@@ -34,7 +34,7 @@ setup(
         'dougrain_forms'
     ],
     install_requires=[
-        'dougrain==0.4'
+        'dougrain==0.5.1'
     ],
     license='BSD',
     classifiers=(
